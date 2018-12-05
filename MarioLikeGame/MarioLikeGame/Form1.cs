@@ -224,7 +224,7 @@ namespace MarioLikeGame
                         this.Controls.Remove(item);
                         pontos++;
                         playSound("smb_coin.wav");
-                        if (pontos == 21)
+                        if (pontos >= 20)
                         {
 
                             stopSound();
@@ -254,18 +254,10 @@ namespace MarioLikeGame
                         personagem.Height += 4;
                         personagem.Width += 4;
 
-                        velocidade--;
+                        velocidade-=1;
 
                         //Incrementar a variável pontos
-                        pontos++;
-
-                        //Condição de Vitória
-                        if (pontos == 21)
-                        {
-                            vitoria = true;
-                            GameOver(vitoria);
-                            RemovePictureBox();
-                        }
+                        pontos += 2;
                     }
                 }
 
@@ -292,8 +284,8 @@ namespace MarioLikeGame
             else
             {
                 RemovePictureBox();
-                //Audio("smb_gameover.war", "Play");
                 
+
                 pcbGameOver1.Visible = true;
             }
             timer1.Stop();
@@ -439,6 +431,11 @@ namespace MarioLikeGame
         }
 
         private void pcbVitoria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
